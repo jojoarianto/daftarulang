@@ -8,97 +8,101 @@
 				<h2>Form Daftar Ulang</h2>
 				<hr>
 				<div class="row">
-					<div class="col-md-6" style="text-align:justify; margin-bottom:30px">
-						<h4>Data Peserta</h4>
-						<hr>
-						<form>
+					<form role="form" method="POST" action="{{ url('/home/form') }}">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						<div class="col-md-6" style="text-align:justify; margin-bottom:30px">
+							<h4>Data Peserta</h4>
+							<hr>
 							<div class="form-group">
-								<label for="exampleInputEmail1">Nama Peserta 1</label>
-								<input type="text" class="form-control" id="nama1" placeholder="Nama Peserta 1">
+								<label>Nama Peserta 1</label>
+								<input name="nama1" type="text" class="form-control" id="nama1" placeholder="Nama Peserta 1" required>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputEmail1">Nomor Ponsel Peserta 1</label>
-								<input type="text" class="form-control" id="nomor1" placeholder="Nomor Ponsel Peserta 1">
+								<label>Nomor Ponsel Peserta 1</label>
+								<input name="nomor1" type="text " class="form-control" id="nomor1" placeholder="Nomor Ponsel Peserta 1" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 							</div>
 							<div class="form-group">
-								<label for="sel1">Jenis Kelamin Peserta 1</label>
-								<select class="form-control" id="kelamin1">
+								<label>Jenis Kelamin Peserta 1</label>
+								<select name="jk1" class="form-control" id="kelamin1" required>
 									<option value="Laki-laki">Laki-laki</option>
 									<option value="Perempuan">Perempuan</option>
 								</select>
 							</div>
 							<hr>
 							<div class="form-group">
-								<label for="exampleInputEmail1">Nama Peserta 2</label>
-								<input type="text" class="form-control" id="nama1" placeholder="Nama Peserta 2">
+								<label>Nama Peserta 2</label>
+								<input name="nama2" type="text" class="form-control" id="nama2" placeholder="Nama Peserta 2" required>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputEmail1">Nomor Ponsel Peserta 2</label>
-								<input type="text" class="form-control" id="nama1" placeholder="Nomor Ponsel Peserta 2">
+								<label>Nomor Ponsel Peserta 2</label>
+								<input name="nomor2" type="text" class="form-control" id="nama1" placeholder="Nomor Ponsel Peserta 2" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 							</div>
 							<div class="form-group">
-								<label for="sel1">Jenis Kelamin Peserta 2</label>
-								<select class="form-control" id="kelamin2">
+								<label>Jenis Kelamin Peserta 2</label>
+								<select name="jk2" class="form-control" id="kelamin2" required>
 									<option value="Laki-laki">Laki-laki</option>
 									<option value="Perempuan">Perempuan</option>
 								</select>
 							</div>
 							<hr>
 							<div class="form-group">
-								<label for="exampleInputEmail1">Nama Peserta 3</label>
-								<input type="text" class="form-control" id="nama1" placeholder="Nama Peserta 3">
+								<label>Nama Peserta 3</label>
+								<input name="nama3" type="text" class="form-control" id="nama1" placeholder="Nama Peserta 3" required>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputEmail1">Nomor Ponsel 3</label>
-								<input type="text" class="form-control" id="nama1" placeholder="Nomor Ponsel 3">
+								<label>Nomor Ponsel 3</label>
+								<input name="nomor3" type="text" class="form-control" id="nama1" placeholder="Nomor Ponsel 3" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 							</div>
 							<div class="form-group">
-								<label for="sel1">Jenis Kelamin Peserta 3</label>
-								<select class="form-control" id="kelamin3">
+								<label>Jenis Kelamin Peserta 3</label>
+								<select name="jk3" class="form-control" id="kelamin3" required>
 									<option value="Laki-laki">Laki-laki</option>
 									<option value="Perempuan">Perempuan</option>
 								</select>
 							</div>
-						</form>
 
-					</div>
+						</div>
 
-					<div class="col-md-6" style="text-align:justify;">
-						<h4>Data Guru Pendamping</h4>
-						<hr>
-						<form>
+						<div class="col-md-6" style="text-align:justify;">
+							<h4>Data Guru Pendamping</h4>
+							<hr>
 							<div class="form-group">
-								<label for="sel1">Apakah ada guru pendamping yang ikut mendampingi selama kegiata Olfar di Surabaya?</label>
+								<label for="sel1">Apakah ada guru pendamping yang ikut mendampingi selama kegiatan Olfar di Surabaya?</label>
 								<select class="form-control" id="gurupendamping">
-									<option value="1">Ada</option>
-									<option value="2">Tidak ada</option>
+									<option value="0">Ada</option>
+									<option value="1">Tidak ada</option>
 								</select>
 							</div>
-							<div id="field">
-								<div class="form-group">
-									<label>Nama Guru Pendamping 1</label>
-									<input type="text" class="form-control" id="gpnama1" placeholder="Nama Guru Pendamping 1">
+							<hr>
+							<div id="gpfield">
+								<div class="gpfield" style="display: block;">
+									<div class="form-group">
+										<label>Nama Guru Pendamping</label>
+										<input name="namagp" type="text" class="form-control" id="gpnama" placeholder="Nama Guru Pendamping">
+									</div>
+									<div class="form-group">
+										<label>Nomor Guru Pendamping</label>
+										<input name="nomorgp" type="text" class="form-control" id="gpnomor" placeholder="Nomor Ponsel Guru Pendamping" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+									</div>
+									<div class="form-group">
+										<label>Jenis Kelamin Guru Pendamping</label>
+										<select name="jkgp" class="form-control" id="gpkelamin">
+											<option value="Laki-laki">Laki-laki</option>
+											<option value="Perempuan">Perempuan</option>
+										</select>
+									</div>
+									<hr>
 								</div>
 								<div class="form-group">
-									<label>Nomor Guru Pendamping 1</label>
-									<input type="text" class="form-control" id="gpnomor1" placeholder="Nomor Ponsel Guru Pendamping 1">
+									<button id="add_more" class="btn btn-default btn-xs" type="button" style="float:right"><span class="glyphicon glyphicon-plus"></span> Guru Pendamping</button>
 								</div>
-								<div class="form-group">
-									<label>Jenis Kelamin Guru Pendamping 1</label>
-									<select class="form-control" id="gpkelamin3">
-										<option value="Laki-laki">Laki-laki</option>
-										<option value="Perempuan">Perempuan</option>
-									</select>
-								</div>
-								<input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Type something" data-items="8"/>
-								<button id="b1" class="btn btn-default btn-xs add-more" type="button">Tambah Guru Pendamping</button>
 							</div>
-							<button type="submit" class="btn btn-default">Submit</button>
-						</form>
-
-					</div>
+							<input type="submit" class="btn btn-default"></input>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	@endsection
+</div>
+@endsection

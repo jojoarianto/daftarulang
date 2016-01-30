@@ -17,6 +17,8 @@ Route::get('home', 'HomeController@index');
 
 Route::get('home/form', 'HomeController@form');
 
+Route::post('home/form', 'HomeController@form_store');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
